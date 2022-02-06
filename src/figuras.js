@@ -1,53 +1,27 @@
 //Código del cuadrado
 console.group(`Cuadrados`);
-//const squareSide = 5;
-
 const squarePerimeter = (side) => {
     return side * 4;
 };
-
 const squareArea = (side) => {
     return side ** 2;
 };
-
-//console.log(`Los lados del cuadrado miden: ${squareSide}cm`);
-//console.log(`El perímetro del cuadrado es: ${squarePerimeter}cm`)
-//console.log(`El área del cuadrado es: ${squareArea}cm2`)
 console.groupEnd();
 
 
 //Código del triángulo
 console.group(`Triángulos`);
-
-/* const triangleSide1 = 6,
-      triangleSide2 = 6,
-      triangleBase = 4,
-      triangleHeight = 5.5,
-      trianglePerimeter = triangleSide1 + triangleSide2 + triangleBase,
-      triangleArea = (triangleBase * triangleHeight) / 2; */
-
 const trianglePerimeter = (side1, side2, base) => {
-    return side1 + side2 + base;
+    return Number(side1) + Number(side2) + Number(base);
 };
-
 const triangleArea = (base, height) => {
     return (base * height) / 2;
 };
-//console.log(`Los lados del triángulo miden: ${triangleSide1}cm, ${triangleSide2}cm, ${triangleBase}cm`)
-//console.log(`La altura del triángulo es: ${triangleHeight}cm`);
-//console.log(`El perímetro del triángulo es: ${trianglePerimeter}cm`);
-//console.log(`El área del triángulo es: ${triangleArea}cm2`);
 console.groupEnd();
 
 
 //Código del círculo
 console.group(`Círculos`);
-
-/* const circleRadio = 4,
-      circleDiameter = circleRadio * 2,
-      PI = Math.PI,
-      circlePerimeter = (circleDiameter * PI),
-      circleArea = (circleRadio ** 2) * PI; */
 
 const circleDiameter = (radio) => {
     return radio * 2;
@@ -59,11 +33,86 @@ const circlePerimeter = (radio) => {
 const circleArea = (radio) => {
     return (radio ** 2) * PI;
 };
-
-
-/* console.log(`El radio del círculo es: ${circleRadio}cm`);
-console.log(`El diámetro del círculo es: ${circleDiameter}cm`);
-console.log(`PI es: ${PI}`);
-console.log(`El perímetro del círculo es: ${circlePerimeter}cm`);
-console.log(`El área del círculo es: ${circleArea}cm2`); */
 console.groupEnd();
+
+
+//Código del triángulo isósceles
+const triangleIsoHeight = (side1, side2, base) => {
+    let height;
+    if (side1 == side2 && side1 != base) {
+        height = Math.sqrt( side1**2 - base**2/ 4 );
+    }
+    else
+    {
+        height = -1;
+        console.log('Los lados 1 y 2 no son iguales');
+    }
+    return height;
+};
+
+//Calcula el área y perímetro de un cuadrado
+const calculateSquarePerimeter = () => {
+    let input = document.getElementById('squareInput');
+    //let value = input.value;
+    let perimeter = squarePerimeter(input.value);
+    alert(`${perimeter} cm`);
+};
+
+const calculateSquareArea = () => {
+    let input = document.getElementById('squareInput');
+    let area = squareArea(input.value);
+    alert(`${area} cm2`);
+};
+
+
+//Calcula el área y perímetro de un triángulo
+const calculateTrianglePerimeter = () => {
+    let side1 = document.getElementById('triangleSide1');
+    let side2 = document.getElementById('triangleSide2');
+    let base = document.getElementById('triangleBase');
+    let perimeter = trianglePerimeter(side1.value, side2.value, base.value);
+    alert(`${perimeter} cm`);
+};
+
+const calculateTriangleArea = () => {
+    let base = document.getElementById('triangleBase');
+    let height = document.getElementById('triangleHeight');
+    
+    let area = triangleArea(base.value, height.value);
+    alert(`${area} cm2`);
+};
+
+
+//Calcula el diámetro, perímetro y área de un círculo
+const calculateCircleDiameter = () => {
+    let radius = document.getElementById('circleInput');
+
+    let diameter = circleDiameter(radius.value);
+    alert(`${diameter} cm`);
+}
+
+const calculateCirclePerimeter = () => {
+    let radius = document.getElementById('circleInput');
+
+    let perimeter = circlePerimeter(radius.value);
+    alert(`${perimeter} cm`);
+}
+
+const calculateCircleArea = () => {
+    let radius = document.getElementById('circleInput');
+
+    let area = circleArea(radius.value);
+    alert(`${area} cm2`);
+}
+
+
+//Calcula la altura del triángulo isósceles
+const calculateTriangleIsoHeight = () => {
+    let side1 = document.getElementById('triangleIsoSide1');
+    let side2 = document.getElementById('triangleIsoSide2');
+    let base = document.getElementById('triangleIsoBase');
+
+    let height = triangleIsoHeight(side1.value, side2.value, base.value);
+
+    alert(`${height} cm`);
+}
