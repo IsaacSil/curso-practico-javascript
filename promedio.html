@@ -7,7 +7,28 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Promedio</h1>
+    <header>
+        <h1>Promedio</h1>
+
+        <p>Tercer taller del curso práctico de JS</p>
+    </header>
+    
+    <section>
+        <H2>Calcular el promedio</H2>
+        <form action="">
+            <label for="inputValue1">Valor N° 1:</label>
+            <input id="inputValue1" type="number">
+            <label for="inputValue2">Valor N° 2:</label>
+            <input id="inputValue2" type="number">            
+            <label for="inputValue3">Valor N° 3:</label>
+            <input id="inputValue3" type="number">
+
+
+            <button type="button" onclick="calculateMean()">Calcular el promedio</button>
+
+            <p id="resultP"></p>
+        </form>
+    </section>
 
     <script src="/promedio.js"></script>
 </body>

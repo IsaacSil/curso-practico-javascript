@@ -7,7 +7,41 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Promedio Ponderado</h1>
+    <header>
+        <h1>Promedio Ponderado</h1>
+
+        <p>Tercer taller del curso práctico de JS</p>
+    </header>
+    
+    <section>
+        <H2>Encontrar el promedio ponderado</H2>
+        <form action="">
+            <section>
+                <h3>Curso 1</h3>
+                <label for="inputName1">Nombre:</label>
+                <input id="inputName1" type="text">
+                <label for="inputNote1">Nota:</label>
+                <input id="inputNote1" type="number">            
+                <label for="inputWeight1">Peso:</label>
+                <input id="inputWeight1" type="number">
+            </section>
+
+            <section>
+                <h3>Curso 2</h3>
+                <label for="inputName2">Nombre:</label>
+                <input id="inputName2" type="text">
+                <label for="inputNote2">Nota:</label>
+                <input id="inputNote2" type="number">            
+                <label for="inputWeight2">Peso:</label>
+                <input id="inputWeight2" type="number">
+            </section>
+
+
+            <button type="button" onclick="calculateWeightedAverage()">Encontrar el promedio ponderado</button>
+
+            <p id="resultP"></p>
+        </form>
+    </section>
 
     <script src="/promedioPonderado.js"></script>
 </body>

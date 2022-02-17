@@ -1,10 +1,3 @@
-const calculateMean = (list) => {
-    const sumList = list.reduce( (previousValue, currentValue) => previousValue + currentValue
-    );
-    let mean = sumList / list.length;
-    return mean;
-};
-
 const lista = [
     100,
     200,
@@ -16,24 +9,36 @@ const lista = [
     5,
 ];
 
-const esPar = (number) => {
-    if (number % 2 === 0) {
-        return true;
-    } else {
-        return false;
-    };
-}
+const meanOfArray = (list) => {
+    let sumList = list.reduce( (acum, currentValue) => Number(acum) + Number(currentValue) );
+    let mean = sumList / list.length;
+    return mean;
+};
 
-const calculateMedian = (list) => {
-    let orderedList = list.sort( (a,b) => a-b)
-    let halfList = parseInt(orderedList.length / 2)
+const esPar = (number) => number % 2 === 0;
+
+const medianOfArray = (list) => {
+    let sortedList = list.sort( (a,b) => a-b)
+    let halfList = parseInt(sortedList.length / 2)
     let median;
-    if (esPar(orderedList.length)) {
-        let element1 = orderedList[halfList - 1];
-        let element2 = orderedList[halfList];
-        median = calculateMean([element1, element2]);
+    if (esPar(sortedList.length)) {
+        let element1 = sortedList[halfList - 1];
+        let element2 = sortedList[halfList];
+        median = meanOfArray([element1, element2]);
     } else {
-        median = orderedList[halfList];
+        median = sortedList[halfList];
     };
     return median;
 }
+
+const calculateMedian = () => {
+    let value1 = document.getElementById("inputValue1").value;
+    let value2 = document.getElementById("inputValue2").value;
+    let value3 = document.getElementById("inputValue3").value;
+
+    let tempArray = [value1, value2, value3];
+    let median = medianOfArray(tempArray);
+
+    let result = document.getElementById("resultP")
+    result.innerText = `La mediana de los ${tempArray.length} valores es: ${median}`;
+};
